@@ -1,0 +1,12 @@
+Instrucciones para MongoDB:
+
+Creación de la base de datos:
+
+	> use BibliotecaDB
+
+Creación de las colecciones:
+
+	> db.createCollection("usuarios");
+	> db.createCollection("libros");
+	> db.createCollection("prestamos");
+	> db.createCollection("devoluciones");

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Incluir head -->
+<%- include('../layout/head') %>
+
+<body class="min-vh-100 d-flex flex-column">
+
+    <!--  Body wrapper -->
+    <div class="page-wrapper flex-grow-1 d-flex" 
+         id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" 
+         data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+
+        <!-- Incluir sidebar -->
+        <%- include('../layout/sidebar') %>
+
+        <!-- Body -->
+        <div class="body-wrapper flex-grow-1 d-flex justify-content-center align-items-center">
+            <div class="card shadow-sm p-4" style="max-width: 400px; width: 100%;">
+                <form action="/usuarios/agregarUsuario" method="POST">
+                    <div class="mb-3">
+                        <label for="cedula" class="form-label">Cédula</label>
+                        <input type="number" class="form-control" id="cedula" name="cedula" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="correo" class="form-label">Correo</label>
+                        <input type="email" class="form-control" id="correo" name="correo" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Agregar Usuario</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Incluir scripts de js -->
+    <%- include('../layout/scripts') %>
+
+</body>
+
+</html>
