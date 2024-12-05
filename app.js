@@ -2,6 +2,7 @@ const express = require('express');
 const methodOverride = require('method-override');
 const connectDB = require('./src/config/db');
 const usuarioRoutes = require('./src/routes/usuarioRoutes');
+const libroRoutes = require('./src/routes/libroRoutes');
 
 const app = express();
 
@@ -25,7 +26,7 @@ app.get('/', (req, res) => {
 app.use('/usuarios', usuarioRoutes);
 
 // Rutas: Libros
-//app.use('/libros', libroRoutes);
+app.use('/libros', libroRoutes);
 
 // Rutas: Préstamos
 //app.use('/prestamos', prestamoRoutes);
