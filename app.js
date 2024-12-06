@@ -3,6 +3,7 @@ const methodOverride = require('method-override');
 const connectDB = require('./src/config/db');
 const usuarioRoutes = require('./src/routes/usuarioRoutes');
 const libroRoutes = require('./src/routes/libroRoutes');
+const prestamoRoutes = require('./src/routes/prestamoRoutes');
 
 const app = express();
 
@@ -29,7 +30,7 @@ app.use('/usuarios', usuarioRoutes);
 app.use('/libros', libroRoutes);
 
 // Rutas: Préstamos
-//app.use('/prestamos', prestamoRoutes);
+app.use('/prestamos', prestamoRoutes);
 
 // Rutas: Devoluciones
 //app.use('/devoluciones', devolucionRoutes);

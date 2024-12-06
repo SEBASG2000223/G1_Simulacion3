@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<!-- Incluir head -->
+<%- include('../layout/head') %>
+
+<body class="min-vh-100 d-flex flex-column">
+
+    <!--  Body wrapper -->
+    <div class="page-wrapper flex-grow-1 d-flex" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6"
+        data-sidebartype="full" data-sidebar-position="fixed" data-header-position="fixed">
+
+        <!-- Incluir sidebar -->
+        <%- include('../layout/sidebar') %>
+
+        <!-- Body -->
+        <div class="body-wrapper flex-grow-1 d-flex align-items-center">
+            <div class="container">
+                <div class="table-wrapper">
+                    <div class="table-title mb-4">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h2>Agregar Préstamo</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <form action="/prestamos/agregarPrestamo" method="POST">
+                        <div class="mb-3">
+                            <label for="libro" class="form-label">Seleccionar Libro</label>
+                            <select class="form-select" id="libro" name="libro" required>
+                                <option value="" disabled selected>Selecciona un libro</option>
+                                <% libros.forEach(function(libro) { %>
+                                    <option value="<%= libro._id %>"><%= libro.titulo %></option>
+                                <% }); %>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="usuario" class="form-label">Seleccionar Usuario</label>
+                            <select class="form-select" id="usuario" name="usuario" required>
+                                <option value="" disabled selected>Selecciona un usuario</option>
+                                <% usuarios.forEach(function(usuario) { %>
+                                    <option value="<%= usuario._id %>"><%= usuario.nombre %></option>
+                                <% }); %>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="fechaPrestamo" class="form-label">Fecha de Préstamo</label>
+                            <input type="date" class="form-control" id="fechaPrestamo" name="fechaPrestamo" required>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="fechaDevolucion" class="form-label">Fecha de Devolución</label>
+                            <input type="date" class="form-control" id="fechaDevolucion" name="fechaDevolucion">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="estado" class="form-label">Estado</label>
+                            <select class="form-select" id="estado" name="estado" required>
+                                <option value="pendiente" selected>Pendiente</option>
+                                <option value="devuelto">Devuelto</option>
+                                <option value="vencido">Vencido</option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100">Agregar Préstamo</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Incluir scripts de js -->
+    <%- include('../layout/scripts') %>
+
+</body>
+
+</html>
